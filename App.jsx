@@ -1,21 +1,16 @@
 
-import { Joke } from "./Joke";
+import Joke from "./Joke"
+import jokes from "./JokesData"
 
-const App = () => (
-        <div className="jokes">
-            <Joke
-            question="How did the hacker escape the police?"
-            answer="He just ransomware!"
-            />
-             <Joke
-            question="Why do bees stay in the hive in the winter?"
-            answer="Swarm"
-            />
-             <Joke
-            question="What's the best thing about Switzerland?"
-            answer="I don't know, but the flag is a big plus!"
-            />                  
-        </div>
+const App = () => {
+    const jokeElements = jokes.map(joke => {
+        return <Joke question={joke.question} punchline={joke.punchline} />
+    })
+    return (
+        <main className="jokes">
+            {jokeElements}
+        </main>
     )
+}
 
 export default App

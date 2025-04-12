@@ -9,6 +9,7 @@ body {
 }
 
 .jokes {
+    padding: 5%;
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
