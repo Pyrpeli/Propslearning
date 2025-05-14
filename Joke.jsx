@@ -1,10 +1,21 @@
-const Joke = (props) => (
-    <article className="joke-card">
-        <h1>A "Joke" for the purposes of learning use of props in gym journal repo</h1>
-        <h2>{props.question}</h2>
-        <h3>{props.answer}</h3>
-    </article>
+import React from "react"
 
-)
+export default function Joke(props) {
 
-export default Joke
+    const [status, changeStatus] = React.useState("false")
+
+    function isShown() {
+        changeStatus(prevStatus => !prevStatus )
+    }
+    return (
+         <article className="joke-card">
+            <h1>"Jokes" for learning props and conditional formating</h1>
+        <div> 
+            {props.setup && <h3>{props.setup}</h3>} 
+            {status ? null : <p>{props.punchline}</p> }
+            <button onClick={isShown}>{status ? "Show" : "Hide"} punchline</button>
+            <hr />
+        </div>
+        </article>
+    )
+}
