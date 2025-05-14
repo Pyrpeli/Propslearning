@@ -8,14 +8,16 @@ export default function Joke(props) {
         changeStatus(prevStatus => !prevStatus )
     }
     return (
+        <>
          <article className="joke-card">
-            <h1>"Jokes" for learning props and conditional formating</h1>
+            <h4> A "joke" for learning props, state and conditional rendering </h4>
         <div> 
-            {props.setup && <h3>{props.setup}</h3>} 
+            {props.question && <h3>{props.question}</h3>} 
             {status ? null : <p>{props.punchline}</p> }
-            <button onClick={isShown}>{status ? "Show" : "Hide"} punchline</button>
             <hr />
         </div>
+        <button onClick={isShown}>{status ? "Show" : "Hide"} punchline</button>
         </article>
+        </>
     )
 }
